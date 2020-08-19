@@ -24,4 +24,26 @@ def diction():
         print(k, v)
 
 
-diction()
+# diction()
+
+
+def set_in_python():
+    """
+        This return the values in the set and remove duplicate entries
+    """
+    set_example = {
+        'Snowden',
+        'Kim Dot Com',
+        'Julian Assange',
+        'Manning',
+        'Gregg Braden',
+        'Bruce Lipton',
+        'Stephen Greer',
+        'Snowden'
+    }
+
+    for data in set_example:
+        print(data)
+
+
+set_in_python()
