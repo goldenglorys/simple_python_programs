@@ -10,5 +10,18 @@ def add_number(*args):
     print(total)
 
 
-add_number(3)
-add_number(33, 5656, 3343)
+# add_number(3)
+# add_number(33, 5656, 3343)
+
+
+def diction():
+    dict_items = {
+        'movie1': 'Snowden',
+        'movie2': 'Ocean',
+        'movie3': 'Heist'
+    }
+    for k, v in dict_items.items():
+        print(k, v)
+
+
+diction()
