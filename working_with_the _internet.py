@@ -1,7 +1,9 @@
 import random
 import urllib.request
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, GuessedAtParserWarning
 import requests
+import warnings
+warnings.filterwarnings('ignore', category=GuessedAtParserWarning)
 
 
 def download_web_image(image_url):
@@ -46,12 +48,23 @@ def web_crawler_spider(max_pages):
         source_code = requests.get(url)
         plain_text = source_code.text
         soupify_text = BeautifulSoup(plain_text)
+        print('===================================================================================')
         for link in soupify_text.find_all('a', {'class': 'bookTitle'}):
             href = 'https://www.goodreads.com' + link.get('href')
-            # title = link.string
+            title = link.text
             print(href)
-            # print(title)
+            get_single_item_data(href)
         page += 1
+    print('===================================================================================')
+
+
+def get_single_item_data(item_url):
+    source_code = requests.get(item_url)
+    plain_text = source_code.text
+    soup = BeautifulSoup(plain_text)
+    for item_name in soup.find_all('h1', {'id': 'bookTitle'}):
+        print(item_name.string)
 
 
 web_crawler_spider(1)
+
