@@ -1,6 +1,9 @@
 class Enemy:
     life = 3
 
+    def __init__(self, x):
+        self.energy = x
+
     def attack(self):
         print("Enemy under attack")
         self.life -= 1
@@ -11,9 +14,13 @@ class Enemy:
         else:
             print(str(self.life) + " life left")
 
+    def get_energy(self):
+        print(self.energy)
 
-thanos = Enemy()
 
+thanos = Enemy(5)
+
+thanos.get_energy()
 thanos.attack()
 thanos.checkenemyelife()
 thanos.attack()
