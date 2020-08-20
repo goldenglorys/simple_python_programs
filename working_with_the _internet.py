@@ -52,7 +52,7 @@ def web_crawler_spider(max_pages):
         for link in soupify_text.find_all('a', {'class': 'bookTitle'}):
             href = 'https://www.goodreads.com' + link.get('href')
             title = link.text
-            print(href)
+            # print(href)
             get_single_item_data(href)
         page += 1
     print('===================================================================================')
@@ -64,6 +64,9 @@ def get_single_item_data(item_url):
     soup = BeautifulSoup(plain_text)
     for item_name in soup.find_all('h1', {'id': 'bookTitle'}):
         print(item_name.string)
+    for link in soup.find_all('a'):
+        href = 'https://www.goodreads.com' + str(link.get('href'))
+        print(href)
 
 
 web_crawler_spider(1)
