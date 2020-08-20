@@ -17,15 +17,18 @@ class Enemy:
     def get_energy(self):
         print(self.energy)
 
+    def print_enemy_name(self):
+        print('Mortal Enemy')
+
+
+class EnemyChild(Enemy):
+    def print_child_enemy_identity(self):
+        print("Mortal Enemy Child")
+
 
 thanos = Enemy(5)
 
-thanos.get_energy()
-thanos.attack()
-thanos.checkenemyelife()
-thanos.attack()
-thanos.checkenemyelife()
-thanos.attack()
-thanos.checkenemyelife()
-thanos.attack()
-thanos.checkenemyelife()
+thanoschild = EnemyChild(2)
+
+thanoschild.print_enemy_name()
+thanoschild.print_child_enemy_identity()
